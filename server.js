@@ -69,7 +69,7 @@ server.post("/users", async (req, res) => {
 
 //10. Opdater en bruger (UPDATE)
 
-server.put("/users", async (req, res) => {
+server.put("/users/:id", async (req, res) => {
     const id = req.params.id; // Get id from URL params
     const user = req.body; // Get user data from request body
     console.log(user); // Print user data to console
@@ -84,7 +84,7 @@ server.put("/users", async (req, res) => {
 
 //11. Slet en bruger (DELETE)
 
-server.put("/users", async (req, res) => {
+server.put("/users/:id", async (req, res) => {
     const id = req.params.id; // Get id from URL params
     const query = "DELETE FROM users WHERE id =?"; // SQL query
     const values = [id]; // Values to pass into query
