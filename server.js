@@ -62,7 +62,7 @@ server.post("/users", async (req, res) => {
     const values = [user.name, user.mail, user.title, user.image]; // Values to insert into query
     const [result] = await db.execute(query, values); // Execute query
     console.log(result); // Print respone to console
-    response.json(result); // Send response as JSON    response.json(result); er det samme som res.json(result);
+    res.json(result); // Send response as JSON    response.json(result); er det samme som res.json(result);
 
 
 });
@@ -77,7 +77,7 @@ server.put("/users", async (req, res) => {
     const values = [user.name, user.mail, user.title, user.image, id]; // Values to pass into query
     const [result] = await db.query(query, values); // Execute query
     console.log(result); // Print respone to console
-    response.json(result); // Send result as JSON
+    res.json(result); // Send result as JSON
 
 
 });
@@ -89,7 +89,7 @@ server.put("/users", async (req, res) => {
     const query = "DELETE FROM users WHERE id =?"; // SQL query
     const values = [id]; // Values to pass into query
     const [result] = await db.query(query, values); // Execute query
-    response.json(result); // Send result as JSON
+    res.json(result); // Send result as JSON
 
 
 });
